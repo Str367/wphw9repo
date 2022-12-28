@@ -4,7 +4,6 @@ import cors from "cors";
 import db from "./db";
 import routes from "./routes";
 import bodyParser from "body-parser";
-import User from "./models/user";
 dotenv.config();
 
 db.connect();
@@ -14,8 +13,8 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(bodyParser.json()); //https://ithelp.ithome.com.tw/articles/10241083
 
-app.use("/", routes);
-app.get("/", (req, res) => {
+app.use("/api", routes);
+app.get("/api", (req, res) => {
   res.send("Hello, World!");
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
